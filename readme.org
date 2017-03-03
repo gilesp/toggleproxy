@@ -1,0 +1,26 @@
+* Toggle Proxy
+A NetworkManager script for toggling docker http proxy configuration,
+depending on the network your connected to.
+
+This script exists because I need to access a private docker
+repository via a proxy when working for a particular client, and
+docker has an all-or-nothing approach to proxy configuration.
+
+This script is triggered by NetworkManager on changes to network
+configuration and will enable the proxy when connecting to a
+particular network. In all other cases, it will disable the proxy if
+required.
+
+** Installation
+   
+   1. Create an ~http_proxy.disabled~ file in
+      ~/etc/systemd/system/docker.service.d~ that specifies your proxy
+      configuration:
+#+begin_src 
+[Service]
+Environment="HTTP_PROXY=http://my.proxy.server.com"
+#+end_src
+   2. Copy ~toggle_proxy.sh~ to
+      ~/etc/NetworkManager/dispatcher.d/99togglerdockerproxy~ and make executable.
+   3. Edit ~99toggledockerproxy~ so that the ~PROXY_DOMAIN~ variable is
+      the network domain you need to use the proxy from.
