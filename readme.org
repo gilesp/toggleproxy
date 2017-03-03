@@ -16,10 +16,10 @@ required.
    1. Create an ~http_proxy.disabled~ file in
       ~/etc/systemd/system/docker.service.d~ that specifies your proxy
       configuration:
-#+begin_src 
-[Service]
-Environment="HTTP_PROXY=http://my.proxy.server.com"
-#+end_src
+      #+begin_src 
+      [Service]
+      Environment="HTTP_PROXY=http://my.proxy.server.com"
+      #+end_src
    2. Copy ~toggle_proxy.sh~ to
       ~/etc/NetworkManager/dispatcher.d/99togglerdockerproxy~ and make executable.
    3. Edit ~99toggledockerproxy~ so that the ~PROXY_DOMAIN~ variable is
