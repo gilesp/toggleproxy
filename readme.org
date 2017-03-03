@@ -21,6 +21,6 @@ required.
       Environment="HTTP_PROXY=http://my.proxy.server.com"
       #+end_src
    2. Copy ~toggle_proxy.sh~ to
-      ~/etc/NetworkManager/dispatcher.d/99togglerdockerproxy~ and make executable.
+      ~/etc/NetworkManager/dispatcher.d/99toggledockerproxy~ and make executable.
    3. Edit ~99toggledockerproxy~ so that the ~PROXY_DOMAIN~ variable is
       the network domain you need to use the proxy from.
