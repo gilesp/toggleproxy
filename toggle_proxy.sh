@@ -3,13 +3,13 @@
 IF=$1
 STATUS=$2
 
-PROXY_DOMAIN="office.blackpepper.co.uk"
+PROXY_DOMAIN="my.network.com"
 CONF_LOCATION="/etc/systemd/system/docker.service.d"
 ENABLED_FILE="$CONF_LOCATION/http_proxy.conf"
 DISABLED_FILE="$CONF_LOCATION/http_proxy.disabled"
 
 restart_docker() {
-    # systemctl daemon-reload
+    systemctl daemon-reload
     systemctl restart docker
 }
 
